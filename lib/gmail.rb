@@ -47,7 +47,11 @@ module Gmail
     
     params[:userId] ||= "me"
     case auth_method
-      when "web_application" 
+      when "web_application"
+        if @client.nil?
+          self.connect
+        end
+      when "installed"
         if @client.nil?
           self.connect
         end
