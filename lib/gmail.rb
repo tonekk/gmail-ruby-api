@@ -97,10 +97,6 @@ module Gmail
       raise 'No client_secret specified'
     end
 
-    unless refresh_token
-      raise 'No refresh_token specified'
-    end
-
     @client = Google::APIClient.new(
         application_name: @application_name,
         application_version: @application_version
